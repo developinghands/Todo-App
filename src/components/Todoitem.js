@@ -11,11 +11,14 @@ export class Todoitem extends Component {
             'line-through' : 'none'
         }
     }
+
     render() {
         return (
             <div style={this.getStyle()}>
                 <p>
-                    <input type='checkbox'/> {'  '}
+                    <input type='checkbox' onChange={
+                        this.props.getID.bind(this, this.props.item.id)}/> 
+                    {'  '}
                     {this.props.item.task}
                 </p>
             </div>
