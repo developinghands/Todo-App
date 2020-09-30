@@ -1,5 +1,6 @@
 import React from 'react';
-import Todo from './components/Todo'
+import Header from './components/layout/Header';
+import Todo from './components/Todo';
 import './App.css';
 
 class App extends React.Component {
@@ -38,7 +39,6 @@ markComplete = (id) => {
 }
 
 // Delete Task
-
 deleteTask = (id) => {
   this.setState({
     todos: [...this.state.todos.filter(todoItem => todoItem.id !== id)]
@@ -48,6 +48,7 @@ deleteTask = (id) => {
 render(){
   return (
     <div className="App">
+    <Header/>
     <Todo todos = {this.state.todos} 
           markComplete = {this.markComplete}
           delete = {this.deleteTask}/>
@@ -55,5 +56,4 @@ render(){
     );
   }
 }
-
 export default App;
