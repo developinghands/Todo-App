@@ -12,17 +12,19 @@ class App extends React.Component {
             complete : false
         },
         {
-            id : 3,
+            id : 2,
             task : "Dinner with wife",
-            complete : true
+            complete : false
         },          
         {
-            id : 4,
+            id : 3,
             task : "Meeting hurdle call",
             complete : false
         }            
     ]
 }  
+
+// Toggle Task Completion
 
 markComplete = (id) => {
   this.setState({
@@ -35,10 +37,20 @@ markComplete = (id) => {
   });
 }
 
+// Delete Task
+
+deleteTask = (id) => {
+  this.setState({
+    todos: [...this.state.todos.filter(todoItem => todoItem.id !== id)]
+  });
+}
+
 render(){
   return (
     <div className="App">
-    <Todo todos = {this.state.todos} markComplete = {this.markComplete}/>
+    <Todo todos = {this.state.todos} 
+          markComplete = {this.markComplete}
+          delete = {this.deleteTask}/>
     </div>
     );
   }

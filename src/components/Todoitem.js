@@ -20,10 +20,24 @@ export class Todoitem extends Component {
                         this.props.getID.bind(this, this.props.item.id)}/> 
                     {'  '}
                     {this.props.item.task}
+                    <button style   = {btnStyle}
+                            onClick = {
+                                this.props.deleteID.bind(this, this.props.item.id)}   
+                        >x</button>
                 </p>
             </div>
         )
     }
+}
+
+const btnStyle = {
+    float           :   'right',
+    backgroundColor :   '#f40000',
+    borderRadius    :   '50%',
+    padding         :   '2px 6px',
+    border          :   'none',
+    color           :   'white',
+    cursor          :   'pointer'
 }
 
 Todoitem.propTypes = {
