@@ -22,6 +22,7 @@ export class AddTodo extends Component {
                         onChange={this.onChange}/>
                 <input  type = 'submit'
                         name = 'submit'
+                        value = 'Add'
                         style={btnStyle} />
             </form>
         )

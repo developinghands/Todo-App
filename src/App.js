@@ -1,8 +1,10 @@
 import React from 'react';
+import {BrowserRouter as Router,Route} from 'react-router-dom';
 import Header from './components/layout/Header';
 import AddTodo from './components/AddTodo';
 import Todo from './components/Todo';
 import {v4} from 'uuid';
+import About from './components/pages/About';
 import './App.css';
 
 class App extends React.Component {
@@ -62,11 +64,18 @@ addTodo = (title) => {
 render(){
   return (
     <div className="App">
-    <Header/>
-    <AddTodo getTitle={this.addTodo} />
-    <Todo todos = {this.state.todos} 
-          markComplete = {this.markComplete}
-          delete = {this.deleteTask}/>
+      <Router>
+        <Header/>
+        <Route exact path='/' render={props => (
+          <React.Fragment>
+            <AddTodo getTitle={this.addTodo} />
+            <Todo todos = {this.state.todos} 
+                  markComplete = {this.markComplete}
+                  delete = {this.deleteTask}/>
+          </React.Fragment>
+        )}/>
+        <Route path='/about' component={About} />
+      </Router>
     </div>
     );
   }
